@@ -152,6 +152,7 @@ class GDBDecompilerClient(DecompilerClient):
             offset = abs(int(offset, 0))
             type_str = self._clean_type_str(stack_var['type'])
             lvar_bptr = self._find_local_var_base_ptr()
+            print("lvar_bptr: ", lvar_bptr)
             if lvar_bptr == "$rbp":
                 offset -= 8
             elif lvar_bptr == "$ebp":

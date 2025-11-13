@@ -192,6 +192,9 @@ class IDADecompilerServer:
 
             # stack variables
             if var.is_stk_var():
+                print(f"variable {var.name} is a stack variable")
+                print(f"the var.location.stkoff() is {var.location.stkoff():#x}")
+                print(f"the cfunc.mba.stacksize is {cfunc.mba.stacksize:#x}")
                 offset = cfunc.mba.stacksize - var.location.stkoff()
                 stack_vars[str(offset)] = {
                     "name": var.name,
