@@ -159,6 +159,13 @@ class AngrDecompilerServer:
         """
         return self._instance.project.loader.main_object.binary
 
+    def versions(self) -> dict[str, str]:
+        """
+        Get version information about the decompiler environment.
+        """
+        resp = {}
+        return resp
+
 
     #
     # XMLRPC Server
@@ -189,6 +196,7 @@ class AngrDecompilerServer:
         server.register_function(self.structs)
         server.register_function(self.breakpoints)
         server.register_function(self.binary_path)
+        server.register_function(self.versions)
         server.register_function(self.ping)
         print("[+] Registered decompilation server!")
         while True:
